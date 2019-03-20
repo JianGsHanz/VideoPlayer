@@ -14,7 +14,11 @@ class MainActivity : AppCompatActivity(),View.OnClickListener{
         setContentView(R.layout.activity_main)
 
         val bt_aotuPlayer = findViewById<Button>(R.id.bt_aotuPlayer)
+        val bt_dkPlayer = findViewById<Button>(R.id.bt_dkAd)
+        val bt_dkTiktok = findViewById<Button>(R.id.bt_dkTiktok)
         bt_aotuPlayer.setOnClickListener(this)
+        bt_dkPlayer.setOnClickListener(this)
+        bt_dkTiktok.setOnClickListener(this)
 
     }
 
@@ -22,6 +26,10 @@ class MainActivity : AppCompatActivity(),View.OnClickListener{
         when(v?.id){
             R.id.bt_aotuPlayer ->
                 startActivity(Intent(this,JiaoziActivity::class.java))
+            R.id.bt_dkAd ->
+                startActivity(Intent(this,DkAdActivity::class.java))
+            R.id.bt_dkTiktok ->
+                startActivity(Intent(this,DkTiktokActivity::class.java))
 
         }
     }

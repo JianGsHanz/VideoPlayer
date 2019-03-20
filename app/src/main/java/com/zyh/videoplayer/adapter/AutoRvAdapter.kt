@@ -1,4 +1,4 @@
-package com.zyh.videoplayer
+package com.zyh.videoplayer.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import cn.jzvd.Jzvd
 import com.bumptech.glide.Glide
+import com.zyh.videoplayer.R
+import com.zyh.videoplayer.VideoConstant
 import kotlinx.android.synthetic.main.rv_auto_item.view.*
 
 /**
@@ -23,7 +25,13 @@ class AutoRvAdapter() : RecyclerView.Adapter<AutoRvAdapter.ViewHolder>() {
     }
 
     override fun onCreateViewHolder(p: ViewGroup, p1: Int): ViewHolder =
-        ViewHolder(LayoutInflater.from(context).inflate(R.layout.rv_auto_item, p, false))
+        ViewHolder(
+            LayoutInflater.from(context).inflate(
+                R.layout.rv_auto_item,
+                p,
+                false
+            )
+        )
 
     override fun getItemCount(): Int = 9
 

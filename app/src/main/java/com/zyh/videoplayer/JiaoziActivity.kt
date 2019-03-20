@@ -12,6 +12,7 @@ import cn.jzvd.JZMediaManager
 import cn.jzvd.Jzvd
 import cn.jzvd.JzvdMgr
 import cn.jzvd.JzvdStd
+import com.zyh.videoplayer.adapter.AutoRvAdapter
 
 class JiaoziActivity : AppCompatActivity() {
 
@@ -23,6 +24,8 @@ class JiaoziActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_jiaozi)
+        val actionBar = supportActionBar
+        actionBar!!.title = "列表滑动播放"
         val rv = findViewById<RecyclerView>(R.id.rv)
 
         lManager = LinearLayoutManager(this)

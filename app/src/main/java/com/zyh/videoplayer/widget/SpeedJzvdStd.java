@@ -1,4 +1,4 @@
-package com.zyh.videoplayer;
+package com.zyh.videoplayer.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -7,6 +7,7 @@ import android.widget.TextView;
 import cn.jzvd.JZDataSource;
 import cn.jzvd.JZMediaManager;
 import cn.jzvd.JzvdStd;
+import com.zyh.videoplayer.R;
 
 /**
  * Time:2019/3/19
