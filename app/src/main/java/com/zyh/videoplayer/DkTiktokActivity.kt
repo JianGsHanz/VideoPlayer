@@ -16,9 +16,10 @@ import com.zyh.videoplayer.bean.VideoBean
 import com.zyh.videoplayer.impl.OnViewPagerListener
 import com.zyh.videoplayer.widget.TikTokController
 import com.zyh.videoplayer.widget.ViewPagerLayoutManager
+import kotlinx.android.synthetic.main.activity_dk_tiktok.*
+import kotlinx.android.synthetic.main.item_tik_tok.*
 
 class DkTiktokActivity : AppCompatActivity() {
-    private lateinit var rv : RecyclerView
     private lateinit var ijkVideoView : IjkVideoView
     private lateinit var mTikTokController : TikTokController
     private lateinit var videoList : ArrayList<VideoBean>
@@ -29,7 +30,6 @@ class DkTiktokActivity : AppCompatActivity() {
 
         setStatusBarTransparent()
 
-        rv = findViewById(R.id.rv)
 
         ijkVideoView = IjkVideoView(this)
         val config = PlayerConfig.Builder().setLooping().build()
@@ -64,8 +64,8 @@ class DkTiktokActivity : AppCompatActivity() {
     }
 
     private fun startPlay(position: Int) {
-        val itemView = rv.getChildAt(0)
-        val frameLayout = itemView.findViewById<FrameLayout>(R.id.container)
+//        val itemView = rv.getChildAt(0)
+//        val frameLayout = itemView.findViewById<FrameLayout>(R.id.container)
         Glide.with(this)
             .load(videoList[position].thumb)
             .placeholder(android.R.color.white)
@@ -74,7 +74,7 @@ class DkTiktokActivity : AppCompatActivity() {
         if (parent is FrameLayout) {
             parent.removeView(ijkVideoView)
         }
-        frameLayout.addView(ijkVideoView)
+        container.addView(ijkVideoView)
         ijkVideoView.setUrl(videoList[position].url)
         ijkVideoView.setScreenScale(IjkVideoView.SCREEN_SCALE_CENTER_CROP)
         ijkVideoView.start()

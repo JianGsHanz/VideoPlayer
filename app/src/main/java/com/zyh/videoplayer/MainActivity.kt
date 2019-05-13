@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.Button
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(),View.OnClickListener{
 
@@ -13,11 +13,11 @@ class MainActivity : AppCompatActivity(),View.OnClickListener{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val bt_aotuPlayer = findViewById<Button>(R.id.bt_aotuPlayer)
-        val bt_dkPlayer = findViewById<Button>(R.id.bt_dkAd)
-        val bt_dkTiktok = findViewById<Button>(R.id.bt_dkTiktok)
+//        val bt_aotuPlayer = findViewById<Button>(R.id.bt_aotuPlayer)
+//        val bt_dkPlayer = findViewById<Button>(R.id.bt_dkAd)
+//        val bt_dkTiktok = findViewById<Button>(R.id.bt_dkTiktok)
         bt_aotuPlayer.setOnClickListener(this)
-        bt_dkPlayer.setOnClickListener(this)
+        bt_dkAd.setOnClickListener(this)
         bt_dkTiktok.setOnClickListener(this)
 
     }

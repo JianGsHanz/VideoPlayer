@@ -13,6 +13,8 @@ import cn.jzvd.Jzvd
 import cn.jzvd.JzvdMgr
 import cn.jzvd.JzvdStd
 import com.zyh.videoplayer.adapter.AutoRvAdapter
+import kotlinx.android.synthetic.main.activity_jiaozi.*
+import kotlinx.android.synthetic.main.rv_auto_item.*
 
 class JiaoziActivity : AppCompatActivity() {
 
@@ -26,7 +28,6 @@ class JiaoziActivity : AppCompatActivity() {
         setContentView(R.layout.activity_jiaozi)
         val actionBar = supportActionBar
         actionBar!!.title = "列表滑动播放"
-        val rv = findViewById<RecyclerView>(R.id.rv)
 
         lManager = LinearLayoutManager(this)
 
@@ -40,8 +41,7 @@ class JiaoziActivity : AppCompatActivity() {
                 }
 
                 override fun onChildViewAttachedToWindow(v: View) {
-                    val jzvd = v.findViewById<Jzvd>(R.id.player)
-                    if (jzvd != null && jzvd.jzDataSource.containsTheUrl(JZMediaManager.getCurrentUrl())) {
+                    if (player != null && player.jzDataSource.containsTheUrl(JZMediaManager.getCurrentUrl())) {
                         val currentJzvd = JzvdMgr.getCurrentJzvd()
                         if (currentJzvd != null && currentJzvd.currentScreen != Jzvd.SCREEN_WINDOW_FULLSCREEN) {
                             Jzvd.releaseAllVideos()
@@ -69,9 +69,9 @@ class JiaoziActivity : AppCompatActivity() {
            })
 
             post {
-                val view = rv.getChildAt(0)
-                val jzvdStd = view.findViewById<JzvdStd>(R.id.player)
-                jzvdStd.startVideo()
+//                val view = rv.getChildAt(0)
+//                val jzvdStd = view.findViewById<JzvdStd>(R.id.player)
+                player.startVideo()
             }
 
 
@@ -81,12 +81,12 @@ class JiaoziActivity : AppCompatActivity() {
     fun aotuPlayerVideo(rv : RecyclerView){
         for (index in 0 until visibleCount){
             if (rv?.getChildAt(index) == null) continue
-            val jzvdStd = rv.getChildAt(index).findViewById<JzvdStd>(R.id.player)
+//            val jzvdStd = rv.getChildAt(index).findViewById<JzvdStd>(R.id.player)
             val rect = Rect()
-            jzvdStd.getLocalVisibleRect(rect)
-            val height = jzvdStd.height
+            player.getLocalVisibleRect(rect)
+            val height = player.height
             if (rect.top == 0 && rect.bottom == height){
-                jzvdStd.startVideo()
+                player.startVideo()
                 return
             }
 
